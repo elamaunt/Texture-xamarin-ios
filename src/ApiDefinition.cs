@@ -2375,114 +2375,114 @@ namespace AsyncDisplayKitBindings
     //    void VideoPlayerNodeDidRecoverFromStall (ASVideoPlayerNode videoPlayer);
     //}
 
-    //// @interface ASEditableTextNode : ASDisplayNode <UITextInputTraits>
-    //[BaseType (typeof(ASDisplayNode))]
-    //interface ASEditableTextNode : IUITextInputTraits
-    //{
-    //    // -(instancetype _Nonnull)initWithTextKitComponents:(ASTextKitComponents * _Nonnull)textKitComponents placeholderTextKitComponents:(ASTextKitComponents * _Nonnull)placeholderTextKitComponents;
-    //    [Export ("initWithTextKitComponents:placeholderTextKitComponents:")]
-    //    IntPtr Constructor (ASTextKitComponents textKitComponents, ASTextKitComponents placeholderTextKitComponents);
+    // @interface ASEditableTextNode : ASDisplayNode <UITextInputTraits>
+    [BaseType(typeof(ASDisplayNode))]
+    interface ASEditableTextNode : IUITextInputTraits
+    {
+        // -(instancetype _Nonnull)initWithTextKitComponents:(ASTextKitComponents * _Nonnull)textKitComponents placeholderTextKitComponents:(ASTextKitComponents * _Nonnull)placeholderTextKitComponents;
+        [Export("initWithTextKitComponents:placeholderTextKitComponents:")]
+        IntPtr Constructor(ASTextKitComponents textKitComponents, ASTextKitComponents placeholderTextKitComponents);
 
-    //    [Wrap ("WeakDelegate")]
-    //    [NullAllowed]
-    //    ASEditableTextNodeDelegate Delegate { get; set; }
+        [Wrap("WeakDelegate")]
+        [NullAllowed]
+        ASEditableTextNodeDelegate Delegate { get; set; }
 
-    //    // @property (readwrite, nonatomic, weak) id<ASEditableTextNodeDelegate> _Nullable delegate;
-    //    [NullAllowed, Export ("delegate", ArgumentSemantic.Weak)]
-    //    NSObject WeakDelegate { get; set; }
+        // @property (readwrite, nonatomic, weak) id<ASEditableTextNodeDelegate> _Nullable delegate;
+        [NullAllowed, Export("delegate", ArgumentSemantic.Weak)]
+        NSObject WeakDelegate { get; set; }
 
-    //    // @property (nonatomic) BOOL scrollEnabled;
-    //    [Export ("scrollEnabled")]
-    //    bool ScrollEnabled { get; set; }
+        // @property (nonatomic) BOOL scrollEnabled;
+        [Export("scrollEnabled")]
+        bool ScrollEnabled { get; set; }
 
-    //    // @property (readonly, nonatomic, strong) UITextView * _Nonnull textView;
-    //    [Export ("textView", ArgumentSemantic.Strong)]
-    //    UITextView TextView { get; }
+        // @property (readonly, nonatomic, strong) UITextView * _Nonnull textView;
+        [Export("textView", ArgumentSemantic.Strong)]
+        UITextView TextView { get; }
 
-    //    // @property (readwrite, nonatomic, strong) NSDictionary<NSString *,id> * _Nullable typingAttributes;
-    //    [NullAllowed, Export ("typingAttributes", ArgumentSemantic.Strong)]
-    //    NSDictionary<NSString, NSObject> TypingAttributes { get; set; }
+        // @property (readwrite, nonatomic, strong) NSDictionary<NSString *,id> * _Nullable typingAttributes;
+        [NullAllowed, Export("typingAttributes", ArgumentSemantic.Strong)]
+        NSDictionary<NSString, NSObject> TypingAttributes { get; set; }
 
-    //    // @property (assign, readwrite, nonatomic) NSRange selectedRange;
-    //    [Export ("selectedRange", ArgumentSemantic.Assign)]
-    //    NSRange SelectedRange { get; set; }
+        // @property (assign, readwrite, nonatomic) NSRange selectedRange;
+        [Export("selectedRange", ArgumentSemantic.Assign)]
+        NSRange SelectedRange { get; set; }
 
-    //    // -(BOOL)isDisplayingPlaceholder __attribute__((warn_unused_result));
-    //    [Export ("isDisplayingPlaceholder")]
-    //    [Verify (MethodToProperty)]
-    //    bool IsDisplayingPlaceholder { get; }
+        // -(BOOL)isDisplayingPlaceholder __attribute__((warn_unused_result));
+        [Export("isDisplayingPlaceholder")]
+        //[Verify(MethodToProperty)]
+        bool IsDisplayingPlaceholder { get; }
 
-    //    // @property (readwrite, nonatomic, strong) NSAttributedString * _Nullable attributedPlaceholderText;
-    //    [NullAllowed, Export ("attributedPlaceholderText", ArgumentSemantic.Strong)]
-    //    NSAttributedString AttributedPlaceholderText { get; set; }
+        // @property (readwrite, nonatomic, strong) NSAttributedString * _Nullable attributedPlaceholderText;
+        [NullAllowed, Export("attributedPlaceholderText", ArgumentSemantic.Strong)]
+        NSAttributedString AttributedPlaceholderText { get; set; }
 
-    //    // @property (readwrite, copy, nonatomic) NSAttributedString * _Nullable attributedText;
-    //    [NullAllowed, Export ("attributedText", ArgumentSemantic.Copy)]
-    //    NSAttributedString AttributedText { get; set; }
+        // @property (readwrite, copy, nonatomic) NSAttributedString * _Nullable attributedText;
+        [NullAllowed, Export("attributedText", ArgumentSemantic.Copy)]
+        NSAttributedString AttributedText { get; set; }
 
-    //    // @property (readonly, nonatomic) UITextInputMode * _Nonnull textInputMode;
-    //    [Export ("textInputMode")]
-    //    UITextInputMode TextInputMode { get; }
+        // @property (readonly, nonatomic) UITextInputMode * _Nonnull textInputMode;
+        [Export("textInputMode")]
+        UITextInputMode TextInputMode { get; }
 
-    //    // @property (readwrite, nonatomic) UIEdgeInsets textContainerInset;
-    //    [Export ("textContainerInset", ArgumentSemantic.Assign)]
-    //    UIEdgeInsets TextContainerInset { get; set; }
+        // @property (readwrite, nonatomic) UIEdgeInsets textContainerInset;
+        [Export("textContainerInset", ArgumentSemantic.Assign)]
+        UIEdgeInsets TextContainerInset { get; set; }
 
-    //    // @property (assign, nonatomic) NSUInteger maximumLinesToDisplay;
-    //    [Export ("maximumLinesToDisplay")]
-    //    nuint MaximumLinesToDisplay { get; set; }
+        // @property (assign, nonatomic) NSUInteger maximumLinesToDisplay;
+        [Export("maximumLinesToDisplay")]
+        nuint MaximumLinesToDisplay { get; set; }
 
-    //    // -(BOOL)isFirstResponder __attribute__((warn_unused_result));
-    //    [Export ("isFirstResponder")]
-    //    [Verify (MethodToProperty)]
-    //    bool IsFirstResponder { get; }
+        // -(BOOL)isFirstResponder __attribute__((warn_unused_result));
+        [Export("isFirstResponder")]
+        //[Verify(MethodToProperty)]
+        bool IsFirstResponder { get; }
 
-    //    // -(BOOL)becomeFirstResponder;
-    //    [Export ("becomeFirstResponder")]
-    //    [Verify (MethodToProperty)]
-    //    bool BecomeFirstResponder { get; }
+        // -(BOOL)becomeFirstResponder;
+        [Export("becomeFirstResponder")]
+        //[Verify(MethodToProperty)]
+        bool BecomeFirstResponder { get; }
 
-    //    // -(BOOL)resignFirstResponder;
-    //    [Export ("resignFirstResponder")]
-    //    [Verify (MethodToProperty)]
-    //    bool ResignFirstResponder { get; }
+        // -(BOOL)resignFirstResponder;
+        [Export("resignFirstResponder")]
+        //[Verify(MethodToProperty)]
+        bool ResignFirstResponder { get; }
 
-    //    // -(CGRect)frameForTextRange:(NSRange)textRange __attribute__((warn_unused_result));
-    //    [Export ("frameForTextRange:")]
-    //    CGRect FrameForTextRange (NSRange textRange);
+        // -(CGRect)frameForTextRange:(NSRange)textRange __attribute__((warn_unused_result));
+        [Export("frameForTextRange:")]
+        CGRect FrameForTextRange(NSRange textRange);
 
-    //    // @property (assign, readwrite, nonatomic) UITextAutocapitalizationType autocapitalizationType;
-    //    [Export ("autocapitalizationType", ArgumentSemantic.Assign)]
-    //    UITextAutocapitalizationType AutocapitalizationType { get; set; }
+        // @property (assign, readwrite, nonatomic) UITextAutocapitalizationType autocapitalizationType;
+        [Export("autocapitalizationType", ArgumentSemantic.Assign)]
+        UITextAutocapitalizationType AutocapitalizationType { get; set; }
 
-    //    // @property (assign, readwrite, nonatomic) UITextAutocorrectionType autocorrectionType;
-    //    [Export ("autocorrectionType", ArgumentSemantic.Assign)]
-    //    UITextAutocorrectionType AutocorrectionType { get; set; }
+        // @property (assign, readwrite, nonatomic) UITextAutocorrectionType autocorrectionType;
+        [Export("autocorrectionType", ArgumentSemantic.Assign)]
+        UITextAutocorrectionType AutocorrectionType { get; set; }
 
-    //    // @property (assign, readwrite, nonatomic) UITextSpellCheckingType spellCheckingType;
-    //    [Export ("spellCheckingType", ArgumentSemantic.Assign)]
-    //    UITextSpellCheckingType SpellCheckingType { get; set; }
+        // @property (assign, readwrite, nonatomic) UITextSpellCheckingType spellCheckingType;
+        [Export("spellCheckingType", ArgumentSemantic.Assign)]
+        UITextSpellCheckingType SpellCheckingType { get; set; }
 
-    //    // @property (assign, readwrite, nonatomic) UIKeyboardType keyboardType;
-    //    [Export ("keyboardType", ArgumentSemantic.Assign)]
-    //    UIKeyboardType KeyboardType { get; set; }
+        // @property (assign, readwrite, nonatomic) UIKeyboardType keyboardType;
+        [Export("keyboardType", ArgumentSemantic.Assign)]
+        UIKeyboardType KeyboardType { get; set; }
 
-    //    // @property (assign, readwrite, nonatomic) UIKeyboardAppearance keyboardAppearance;
-    //    [Export ("keyboardAppearance", ArgumentSemantic.Assign)]
-    //    UIKeyboardAppearance KeyboardAppearance { get; set; }
+        // @property (assign, readwrite, nonatomic) UIKeyboardAppearance keyboardAppearance;
+        [Export("keyboardAppearance", ArgumentSemantic.Assign)]
+        UIKeyboardAppearance KeyboardAppearance { get; set; }
 
-    //    // @property (assign, readwrite, nonatomic) UIReturnKeyType returnKeyType;
-    //    [Export ("returnKeyType", ArgumentSemantic.Assign)]
-    //    UIReturnKeyType ReturnKeyType { get; set; }
+        // @property (assign, readwrite, nonatomic) UIReturnKeyType returnKeyType;
+        [Export("returnKeyType", ArgumentSemantic.Assign)]
+        UIReturnKeyType ReturnKeyType { get; set; }
 
-    //    // @property (assign, readwrite, nonatomic) BOOL enablesReturnKeyAutomatically;
-    //    [Export ("enablesReturnKeyAutomatically")]
-    //    bool EnablesReturnKeyAutomatically { get; set; }
+        // @property (assign, readwrite, nonatomic) BOOL enablesReturnKeyAutomatically;
+        [Export("enablesReturnKeyAutomatically")]
+        bool EnablesReturnKeyAutomatically { get; set; }
 
-    //    // @property (getter = isSecureTextEntry, assign, readwrite, nonatomic) BOOL secureTextEntry;
-    //    [Export ("secureTextEntry")]
-    //    bool SecureTextEntry { [Bind ("isSecureTextEntry")] get; set; }
-    //}
+        // @property (getter = isSecureTextEntry, assign, readwrite, nonatomic) BOOL secureTextEntry;
+        [Export("secureTextEntry")]
+        bool SecureTextEntry { [Bind("isSecureTextEntry")] get; set; }
+    }
 
     //// @interface Unavailable (ASEditableTextNode)
     //[Category]
@@ -2491,35 +2491,35 @@ namespace AsyncDisplayKitBindings
     //{
     //}
 
-    //// @protocol ASEditableTextNodeDelegate <NSObject>
-    //[Protocol, Model]
-    //[BaseType (typeof(NSObject))]
-    //interface ASEditableTextNodeDelegate
-    //{
-    //    // @optional -(BOOL)editableTextNodeShouldBeginEditing:(ASEditableTextNode * _Nonnull)editableTextNode;
-    //    [Export ("editableTextNodeShouldBeginEditing:")]
-    //    bool EditableTextNodeShouldBeginEditing (ASEditableTextNode editableTextNode);
+    // @protocol ASEditableTextNodeDelegate <NSObject>
+    [Protocol, Model]
+    [BaseType(typeof(NSObject))]
+    interface ASEditableTextNodeDelegate
+    {
+        // @optional -(BOOL)editableTextNodeShouldBeginEditing:(ASEditableTextNode * _Nonnull)editableTextNode;
+        [Export("editableTextNodeShouldBeginEditing:")]
+        bool EditableTextNodeShouldBeginEditing(ASEditableTextNode editableTextNode);
 
-    //    // @optional -(void)editableTextNodeDidBeginEditing:(ASEditableTextNode * _Nonnull)editableTextNode;
-    //    [Export ("editableTextNodeDidBeginEditing:")]
-    //    void EditableTextNodeDidBeginEditing (ASEditableTextNode editableTextNode);
+        // @optional -(void)editableTextNodeDidBeginEditing:(ASEditableTextNode * _Nonnull)editableTextNode;
+        [Export("editableTextNodeDidBeginEditing:")]
+        void EditableTextNodeDidBeginEditing(ASEditableTextNode editableTextNode);
 
-    //    // @optional -(BOOL)editableTextNode:(ASEditableTextNode * _Nonnull)editableTextNode shouldChangeTextInRange:(NSRange)range replacementText:(NSString * _Nonnull)text;
-    //    [Export ("editableTextNode:shouldChangeTextInRange:replacementText:")]
-    //    bool EditableTextNode (ASEditableTextNode editableTextNode, NSRange range, string text);
+        // @optional -(BOOL)editableTextNode:(ASEditableTextNode * _Nonnull)editableTextNode shouldChangeTextInRange:(NSRange)range replacementText:(NSString * _Nonnull)text;
+        [Export("editableTextNode:shouldChangeTextInRange:replacementText:")]
+        bool EditableTextNode(ASEditableTextNode editableTextNode, NSRange range, string text);
 
-    //    // @optional -(void)editableTextNodeDidChangeSelection:(ASEditableTextNode * _Nonnull)editableTextNode fromSelectedRange:(NSRange)fromSelectedRange toSelectedRange:(NSRange)toSelectedRange dueToEditing:(BOOL)dueToEditing;
-    //    [Export ("editableTextNodeDidChangeSelection:fromSelectedRange:toSelectedRange:dueToEditing:")]
-    //    void EditableTextNodeDidChangeSelection (ASEditableTextNode editableTextNode, NSRange fromSelectedRange, NSRange toSelectedRange, bool dueToEditing);
+        // @optional -(void)editableTextNodeDidChangeSelection:(ASEditableTextNode * _Nonnull)editableTextNode fromSelectedRange:(NSRange)fromSelectedRange toSelectedRange:(NSRange)toSelectedRange dueToEditing:(BOOL)dueToEditing;
+        [Export("editableTextNodeDidChangeSelection:fromSelectedRange:toSelectedRange:dueToEditing:")]
+        void EditableTextNodeDidChangeSelection(ASEditableTextNode editableTextNode, NSRange fromSelectedRange, NSRange toSelectedRange, bool dueToEditing);
 
-    //    // @optional -(void)editableTextNodeDidUpdateText:(ASEditableTextNode * _Nonnull)editableTextNode;
-    //    [Export ("editableTextNodeDidUpdateText:")]
-    //    void EditableTextNodeDidUpdateText (ASEditableTextNode editableTextNode);
+        // @optional -(void)editableTextNodeDidUpdateText:(ASEditableTextNode * _Nonnull)editableTextNode;
+        [Export("editableTextNodeDidUpdateText:")]
+        void EditableTextNodeDidUpdateText(ASEditableTextNode editableTextNode);
 
-    //    // @optional -(void)editableTextNodeDidFinishEditing:(ASEditableTextNode * _Nonnull)editableTextNode;
-    //    [Export ("editableTextNodeDidFinishEditing:")]
-    //    void EditableTextNodeDidFinishEditing (ASEditableTextNode editableTextNode);
-    //}
+        // @optional -(void)editableTextNodeDidFinishEditing:(ASEditableTextNode * _Nonnull)editableTextNode;
+        [Export("editableTextNodeDidFinishEditing:")]
+        void EditableTextNodeDidFinishEditing(ASEditableTextNode editableTextNode);
+    }
 
     // @protocol ASImageContainerProtocol <NSObject>
     [Protocol, Model]
@@ -5095,89 +5095,89 @@ namespace AsyncDisplayKitBindings
         ASNodeController NodeController { get; }
     }
 
-    //// @protocol ASVisibilityDepth <NSObject>
-    //[Protocol, Model]
-    //[BaseType (typeof(NSObject))]
-    //interface ASVisibilityDepth
-    //{
-    //    // @required -(NSInteger)visibilityDepth;
-    //    [Abstract]
-    //    [Export ("visibilityDepth")]
-    //    [Verify (MethodToProperty)]
-    //    nint VisibilityDepth { get; }
+    // @protocol ASVisibilityDepth <NSObject>
+    [Protocol, Model]
+    [BaseType(typeof(NSObject))]
+    interface ASVisibilityDepth
+    {
+        // @required -(NSInteger)visibilityDepth;
+        [Abstract]
+        [Export("visibilityDepth")]
+        //[Verify(MethodToProperty)]
+        nint VisibilityDepth { get; }
 
-    //    // @required -(void)visibilityDepthDidChange;
-    //    [Abstract]
-    //    [Export ("visibilityDepthDidChange")]
-    //    void VisibilityDepthDidChange ();
-    //}
+        // @required -(void)visibilityDepthDidChange;
+        [Abstract]
+        [Export("visibilityDepthDidChange")]
+        void VisibilityDepthDidChange();
+    }
 
-    //// @protocol ASManagesChildVisibilityDepth <ASVisibilityDepth>
-    //[Protocol, Model]
-    //interface ASManagesChildVisibilityDepth : IASVisibilityDepth
-    //{
-    //    // @required -(NSInteger)visibilityDepthOfChildViewController:(UIViewController * _Nonnull)childViewController;
-    //    [Abstract]
-    //    [Export ("visibilityDepthOfChildViewController:")]
-    //    nint VisibilityDepthOfChildViewController (UIViewController childViewController);
-    //}
+    // @protocol ASManagesChildVisibilityDepth <ASVisibilityDepth>
+    [Protocol, Model]
+    interface ASManagesChildVisibilityDepth : ASVisibilityDepth
+    {
+        // @required -(NSInteger)visibilityDepthOfChildViewController:(UIViewController * _Nonnull)childViewController;
+        [Abstract]
+        [Export("visibilityDepthOfChildViewController:")]
+        nint VisibilityDepthOfChildViewController(UIViewController childViewController);
+    }
 
-    //// typedef ASTraitCollection * _Nonnull (^ASDisplayTraitsForTraitCollectionBlock)(UITraitCollection * _Nonnull);
-    //delegate ASTraitCollection ASDisplayTraitsForTraitCollectionBlock (UITraitCollection arg0);
+    // typedef ASTraitCollection * _Nonnull (^ASDisplayTraitsForTraitCollectionBlock)(UITraitCollection * _Nonnull);
+    delegate ASTraitCollection ASDisplayTraitsForTraitCollectionBlock(UITraitCollection arg0);
 
-    //// typedef ASTraitCollection * _Nonnull (^ASDisplayTraitsForTraitWindowSizeBlock)(CGSize);
-    //delegate ASTraitCollection ASDisplayTraitsForTraitWindowSizeBlock (CGSize arg0);
+    // typedef ASTraitCollection * _Nonnull (^ASDisplayTraitsForTraitWindowSizeBlock)(CGSize);
+    delegate ASTraitCollection ASDisplayTraitsForTraitWindowSizeBlock(CGSize arg0);
 
-    //// audit-objc-generics: @interface ASViewController<__covariant DisplayNodeType : ASDisplayNode *> : UIViewController <ASVisibilityDepth>
-    //[BaseType (typeof(UIViewController))]
-    //interface ASViewController : IASVisibilityDepth
-    //{
-    //    // -(instancetype _Nonnull)initWithNode:(DisplayNodeType _Nonnull)node;
-    //    [Export ("initWithNode:")]
-    //    IntPtr Constructor (ASDisplayNode node);
+    // audit-objc-generics: @interface ASViewController<__covariant DisplayNodeType : ASDisplayNode *> : UIViewController <ASVisibilityDepth>
+    [BaseType(typeof(UIViewController))]
+    interface ASViewController : ASVisibilityDepth
+    {
+        // -(instancetype _Nonnull)initWithNode:(DisplayNodeType _Nonnull)node;
+        [Export("initWithNode:")]
+        IntPtr Constructor(ASDisplayNode node);
 
-    //    // @property (readonly, nonatomic, strong) DisplayNodeType _Null_unspecified node;
-    //    [Export ("node", ArgumentSemantic.Strong)]
-    //    ASDisplayNode Node { get; }
+        // @property (readonly, nonatomic, strong) DisplayNodeType _Null_unspecified node;
+        [Export("node", ArgumentSemantic.Strong)]
+        ASDisplayNode Node { get; }
 
-    //    // @property (copy, nonatomic) ASDisplayTraitsForTraitCollectionBlock _Nonnull overrideDisplayTraitsWithTraitCollection;
-    //    [Export ("overrideDisplayTraitsWithTraitCollection", ArgumentSemantic.Copy)]
-    //    ASDisplayTraitsForTraitCollectionBlock OverrideDisplayTraitsWithTraitCollection { get; set; }
+        // @property (copy, nonatomic) ASDisplayTraitsForTraitCollectionBlock _Nonnull overrideDisplayTraitsWithTraitCollection;
+        [Export("overrideDisplayTraitsWithTraitCollection", ArgumentSemantic.Copy)]
+        ASDisplayTraitsForTraitCollectionBlock OverrideDisplayTraitsWithTraitCollection { get; set; }
 
-    //    // @property (copy, nonatomic) ASDisplayTraitsForTraitWindowSizeBlock _Nonnull overrideDisplayTraitsWithWindowSize;
-    //    [Export ("overrideDisplayTraitsWithWindowSize", ArgumentSemantic.Copy)]
-    //    ASDisplayTraitsForTraitWindowSizeBlock OverrideDisplayTraitsWithWindowSize { get; set; }
+        // @property (copy, nonatomic) ASDisplayTraitsForTraitWindowSizeBlock _Nonnull overrideDisplayTraitsWithWindowSize;
+        [Export("overrideDisplayTraitsWithWindowSize", ArgumentSemantic.Copy)]
+        ASDisplayTraitsForTraitWindowSizeBlock OverrideDisplayTraitsWithWindowSize { get; set; }
 
-    //    // @property (readonly, nonatomic) ASInterfaceState interfaceState;
-    //    [Export ("interfaceState")]
-    //    ASInterfaceState InterfaceState { get; }
+        // @property (readonly, nonatomic) ASInterfaceState interfaceState;
+        [Export("interfaceState")]
+        ASInterfaceState InterfaceState { get; }
 
-    //    // @property (assign, nonatomic) BOOL neverShowPlaceholders;
-    //    [Export ("neverShowPlaceholders")]
-    //    bool NeverShowPlaceholders { get; set; }
-    //}
+        // @property (assign, nonatomic) BOOL neverShowPlaceholders;
+        [Export("neverShowPlaceholders")]
+        bool NeverShowPlaceholders { get; set; }
+    }
 
-    //// @interface ASRangeControllerUpdateRangeProtocol (ASViewController)
+    // @interface ASRangeControllerUpdateRangeProtocol (ASViewController)
     //[Category]
-    //[BaseType (typeof(ASViewController))]
-    //interface ASViewController_ASRangeControllerUpdateRangeProtocol
-    //{
-    //    // @property (assign, nonatomic) BOOL automaticallyAdjustRangeModeBasedOnViewEvents;
-    //    [Export ("automaticallyAdjustRangeModeBasedOnViewEvents")]
-    //    bool AutomaticallyAdjustRangeModeBasedOnViewEvents { get; set; }
-    //}
+    /*[BaseType(typeof(ASViewController))]
+    interface ASViewController_ASRangeControllerUpdateRangeProtocol 
+    {
+        // @property (assign, nonatomic) BOOL automaticallyAdjustRangeModeBasedOnViewEvents;
+        [Export("automaticallyAdjustRangeModeBasedOnViewEvents")]
+        bool AutomaticallyAdjustRangeModeBasedOnViewEvents { get; set; }
+    }*/
 
-    //// @interface ASNavigationController : UINavigationController <ASManagesChildVisibilityDepth>
-    //[BaseType (typeof(UINavigationController))]
-    //interface ASNavigationController : IASManagesChildVisibilityDepth
-    //{
-    //}
+    // @interface ASNavigationController : UINavigationController <ASManagesChildVisibilityDepth>
+    [BaseType(typeof(UINavigationController))]
+    interface ASNavigationController : ASManagesChildVisibilityDepth
+    {
+    }
 
-    //// @interface ASTabBarController : UITabBarController <ASManagesChildVisibilityDepth>
-    //[BaseType (typeof(UITabBarController))]
-    //interface ASTabBarController : IASManagesChildVisibilityDepth
-    //{
-    //}
+    // @interface ASTabBarController : UITabBarController <ASManagesChildVisibilityDepth>
+    [BaseType(typeof(UITabBarController))]
+    interface ASTabBarController : ASManagesChildVisibilityDepth
+    {
+    }
 
     //// @interface ASEventLog : NSObject
     //[BaseType (typeof(NSObject))]
@@ -6233,44 +6233,44 @@ namespace AsyncDisplayKitBindings
     //    void ReleaseObjectInBackground (NSObject @object);
     //}
 
-    //// @interface ASTextKitComponents : NSObject
-    //[BaseType (typeof(NSObject))]
-    //interface ASTextKitComponents
-    //{
-    //    // +(instancetype _Nonnull)componentsWithAttributedSeedString:(NSAttributedString * _Nullable)attributedSeedString textContainerSize:(CGSize)textContainerSize;
-    //    [Static]
-    //    [Export ("componentsWithAttributedSeedString:textContainerSize:")]
-    //    ASTextKitComponents ComponentsWithAttributedSeedString ([NullAllowed] NSAttributedString attributedSeedString, CGSize textContainerSize);
+    // @interface ASTextKitComponents : NSObject
+    [BaseType(typeof(NSObject))]
+    interface ASTextKitComponents
+    {
+        // +(instancetype _Nonnull)componentsWithAttributedSeedString:(NSAttributedString * _Nullable)attributedSeedString textContainerSize:(CGSize)textContainerSize;
+        [Static]
+        [Export("componentsWithAttributedSeedString:textContainerSize:")]
+        ASTextKitComponents ComponentsWithAttributedSeedString([NullAllowed] NSAttributedString attributedSeedString, CGSize textContainerSize);
 
-    //    // +(instancetype _Nonnull)componentsWithTextStorage:(NSTextStorage * _Nonnull)textStorage textContainerSize:(CGSize)textContainerSize layoutManager:(NSLayoutManager * _Nonnull)layoutManager;
-    //    [Static]
-    //    [Export ("componentsWithTextStorage:textContainerSize:layoutManager:")]
-    //    ASTextKitComponents ComponentsWithTextStorage (NSTextStorage textStorage, CGSize textContainerSize, NSLayoutManager layoutManager);
+        // +(instancetype _Nonnull)componentsWithTextStorage:(NSTextStorage * _Nonnull)textStorage textContainerSize:(CGSize)textContainerSize layoutManager:(NSLayoutManager * _Nonnull)layoutManager;
+        [Static]
+        [Export("componentsWithTextStorage:textContainerSize:layoutManager:")]
+        ASTextKitComponents ComponentsWithTextStorage(NSTextStorage textStorage, CGSize textContainerSize, NSLayoutManager layoutManager);
 
-    //    // -(CGSize)sizeForConstrainedWidth:(CGFloat)constrainedWidth;
-    //    [Export ("sizeForConstrainedWidth:")]
-    //    CGSize SizeForConstrainedWidth (nfloat constrainedWidth);
+        // -(CGSize)sizeForConstrainedWidth:(CGFloat)constrainedWidth;
+        [Export("sizeForConstrainedWidth:")]
+        CGSize SizeForConstrainedWidth(nfloat constrainedWidth);
 
-    //    // -(CGSize)sizeForConstrainedWidth:(CGFloat)constrainedWidth forMaxNumberOfLines:(NSInteger)numberOfLines;
-    //    [Export ("sizeForConstrainedWidth:forMaxNumberOfLines:")]
-    //    CGSize SizeForConstrainedWidth (nfloat constrainedWidth, nint numberOfLines);
+        // -(CGSize)sizeForConstrainedWidth:(CGFloat)constrainedWidth forMaxNumberOfLines:(NSInteger)numberOfLines;
+        [Export("sizeForConstrainedWidth:forMaxNumberOfLines:")]
+        CGSize SizeForConstrainedWidth(nfloat constrainedWidth, nint numberOfLines);
 
-    //    // @property (readonly, nonatomic, strong) NSTextStorage * _Nonnull textStorage;
-    //    [Export ("textStorage", ArgumentSemantic.Strong)]
-    //    NSTextStorage TextStorage { get; }
+        // @property (readonly, nonatomic, strong) NSTextStorage * _Nonnull textStorage;
+        [Export("textStorage", ArgumentSemantic.Strong)]
+        NSTextStorage TextStorage { get; }
 
-    //    // @property (readonly, nonatomic, strong) NSTextContainer * _Nonnull textContainer;
-    //    [Export ("textContainer", ArgumentSemantic.Strong)]
-    //    NSTextContainer TextContainer { get; }
+        // @property (readonly, nonatomic, strong) NSTextContainer * _Nonnull textContainer;
+        [Export("textContainer", ArgumentSemantic.Strong)]
+        NSTextContainer TextContainer { get; }
 
-    //    // @property (readonly, nonatomic, strong) NSLayoutManager * _Nonnull layoutManager;
-    //    [Export ("layoutManager", ArgumentSemantic.Strong)]
-    //    NSLayoutManager LayoutManager { get; }
+        // @property (readonly, nonatomic, strong) NSLayoutManager * _Nonnull layoutManager;
+        [Export("layoutManager", ArgumentSemantic.Strong)]
+        NSLayoutManager LayoutManager { get; }
 
-    //    // @property (nonatomic, strong) UITextView * _Nullable textView;
-    //    [NullAllowed, Export ("textView", ArgumentSemantic.Strong)]
-    //    UITextView TextView { get; set; }
-    //}
+        // @property (nonatomic, strong) UITextView * _Nullable textView;
+        [NullAllowed, Export("textView", ArgumentSemantic.Strong)]
+        UITextView TextView { get; set; }
+    }
 
     //// audit-objc-generics: @interface ASWeakSet<__covariant ObjectType> : NSObject <NSFastEnumeration>
     //[BaseType (typeof(NSObject))]
