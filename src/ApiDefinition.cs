@@ -5129,8 +5129,8 @@ namespace AsyncDisplayKitBindings
     delegate ASTraitCollection ASDisplayTraitsForTraitWindowSizeBlock(CGSize arg0);
 
     // audit-objc-generics: @interface ASViewController<__covariant DisplayNodeType : ASDisplayNode *> : UIViewController <ASVisibilityDepth>
-    [BaseType(typeof(UIViewController))]
-    interface ASViewController : ASVisibilityDepth
+    /*[BaseType(typeof(UIViewController))]
+    interface ASViewController : ASVisibilityDepth, ASRangeControllerUpdateRangeProtocol
     {
         // -(instancetype _Nonnull)initWithNode:(DisplayNodeType _Nonnull)node;
         [Export("initWithNode:")]
@@ -5155,7 +5155,11 @@ namespace AsyncDisplayKitBindings
         // @property (assign, nonatomic) BOOL neverShowPlaceholders;
         [Export("neverShowPlaceholders")]
         bool NeverShowPlaceholders { get; set; }
-    }
+
+        // @property (assign, nonatomic) BOOL automaticallyAdjustRangeModeBasedOnViewEvents;
+        [Export("automaticallyAdjustRangeModeBasedOnViewEvents")]
+        bool AutomaticallyAdjustRangeModeBasedOnViewEvents { get; set; }
+    }*/
 
     // @interface ASRangeControllerUpdateRangeProtocol (ASViewController)
     //[Category]
